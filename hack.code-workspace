@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "hack",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "hack"
+	}
+}

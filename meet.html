@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athletic Meet Registration</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Form Styles */
+        form {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        /* Unique Number Display Styles */
+        #uniqueNumber {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Athletic Meet Registration</h1>
+    <form id="registrationForm">
+        <label for="crn">CRN (Roll Number):</label>
+        <input type="text" id="crn" name="crn" required>
+
+        <label for="urn">URN (Roll Number):</label>
+        <input type="text" id="urn" name="urn" required>
+
+        <label for="event">Select Event:</label>
+        <select id="event" name="event" required>   
+            <option value="" disabled selected>Select an event</option>
+            <option value="100m">100m</option>
+            <option value="200m">200m</option>
+            <option value="Long Jump">Long Jump</option>
+            <!-- Add more events as needed -->
+        </select>
+
+        <button type="button" id="registerButton" onclick="registerParticipant()">Register</button>
+    </form>
+
+    <div id="uniqueNumber"></div>
+
+    <script>
+        function registerParticipant() {
+            const crn = document.getElementById('crn').value;
+            const urn = document.getElementById('urn').value;
+            const event = document.getElementById('event').value;
+            
+            // Generate a unique number (e.g., timestamp)
+            const uniqueNumber = Date.now();
+
+            // Display the unique number
+            document.getElementById('uniqueNumber').innerHTML = `You are registered for the ${event} event. Your unique registration number is: ${uniqueNumber}`;
+
+            // Disable the button after registration
+            document.getElementById('registerButton').disabled = true;
+        }
+    </script>
+</body>
+</html>
